@@ -40,4 +40,23 @@ private ArticleMapper articleMapper;
         pageBean.setItems(p.getResult());
         return pageBean;
     }
+
+    @Override
+    public Article finByid(Integer id) {
+        Article article=articleMapper.finByid(id);
+        return article;
+    }
+
+    @Override
+    public void update(Article article) {
+        article.setUpdateTime(LocalDateTime.now());
+        articleMapper.update(article);
+
+    }
+
+    @Override
+    public void delete(Integer id) {
+        articleMapper.delete(id);
+
+    }
 }
